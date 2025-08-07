@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dolcetta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+      <!-- Left: Logo -->
+      <a href="#" class="flex items-center gap-2">
+        <img src="navbarfoto/logolocetta.jpg" alt="Dolcetta Logo" class="w-20 h-auto" />
+      </a>
+
+      <!-- Middle: Category Dropdown + Search -->
+      <div class="hidden md:flex items-center space-x-4 flex-grow justify-center">
+        <!-- Category Dropdown -->
+        <div class="relative">
+          <select class="appearance-none bg-pink-100 text-pink-700 px-4 py-2 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+            <option>Kategori Manisan</option>
+            <option>Cake</option>
+            <option>Pudding</option>
+            <option>Ice Cream</option>
+          </select>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative">
+          <input type="text" placeholder="Cari manisan" class="bg-pink-100 text-sm text-pink-600 px-4 py-2 rounded-full pl-10 placeholder-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-400" />
+          <svg class="w-4 h-4 text-pink-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Cart Icon -->
+      <div class="flex items-center space-x-4">
+        <button class="text-pink-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.35 6.75a1 1 0 00.98 1.25H19a1 1 0 00.98-.75L21 13H7z" />
+          </svg>
+        </button>
+        <!-- Hamburger for mobile -->
+        <button id="menuToggle" class="md:hidden text-pink-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="md:hidden hidden bg-white border-t border-pink-100 px-4 pb-4">
+      <a href="#beranda" class="block py-2 text-pink-600 hover:bg-pink-100 rounded">Beranda</a>
+      <a href="#footer" class="block py-2 text-pink-600 hover:bg-pink-100 rounded">Footer</a>
+      <select class="mt-2 w-full bg-pink-100 text-pink-700 px-4 py-2 rounded-full shadow-sm">
+        <option>Kategori Manisan</option>
+      </select>
+      <input type="text" placeholder="Cari manisan"
+             class="w-full mt-2 bg-pink-100 text-sm text-pink-600 px-4 py-2 rounded-full placeholder-pink-400" />
+    </nav>
+  </header>
+
+  <!-- Script toggle menu -->
+  <script>
+    const toggleBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!toggleBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- Main content -->
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+
+    <!-- Banner -->
+    <div>
+      <img src="https://via.placeholder.com/600x200?text=EARL+GREY+Soft+Fromage" alt="Banner"
+           class="rounded-xl shadow-md w-full object-cover" />
+    </div>
+
+    <!-- Kategori Ikon -->
+    <div class="flex justify-around md:justify-evenly items-center space-x-2 overflow-x-auto">
+      <div class="text-center space-y-1">
+        <div class="text-3xl">☕</div>
+        <p class="text-sm text-pink-600">Coffee</p>
+      </div>
+      <div class="text-center space-y-1">
+        <div class="text-3xl">🧁</div>
+        <p class="text-sm text-pink-600">Pancake</p>
+      </div>
+      <div class="text-center space-y-1">
+        <div class="text-3xl">🍨</div>
+        <p class="text-sm text-pink-600">Ice Cream</p>
+      </div>
+      <div class="text-center space-y-1">
+        <div class="text-3xl">🍰</div>
+        <p class="text-sm text-pink-600">Cake</p>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex flex-wrap gap-4 items-center mt-4">
+      <div>
+        <label class="block text-sm font-medium text-pink-700 mb-1">Cake Terlaris</label>
+        <select class="bg-white border border-pink-300 text-pink-700 px-3 py-2 rounded-md">
+          <option>- Pilihan Budget -</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-pink-700 mb-1">Urutkan</label>
+        <select class="bg-white border border-pink-300 text-pink-700 px-3 py-2 rounded-md">
+          <option>- Urutkan -</option>
+        </select>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-white border-t mt-10 py-6 text-center text-pink-600 text-sm">
+    &copy; 2025 Dolcetta. All rights reserved.
+  </footer>
+
+</body>
+</html>

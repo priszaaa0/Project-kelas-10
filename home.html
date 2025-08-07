@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dolcetta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- Pilihan Atas -->
+  <div class="bg-pink-100 text-pink-600 text-sm px-6 py-2 flex justify-end gap-6">
+    <a href="#beranda" class="hover:text-white">Beranda</a>
+    <a href="#footer" class="hover:text-white">Footer</a>
+  </div>
+
+  <!-- Navbar Section -->
+  <section id="beranda" class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- Logo dan Dropdown + Search -->
+      <div class="flex items-center gap-6">
+        <a href="home.html">
+          <img src="navbarfoto/logolocetta.jpg" alt="Logo Dolcetta" class="w-24 h-auto" />
+        </a>
+
+        <div class="relative" id="dropdownWrapper">
+          <button id="dropdownButton"
+                  class="text-sm text-gray-700 flex items-center gap-1 px-4 py-2 rounded hover:bg-pink-50">
+            Kategori Manisan
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="dropdownMenu"
+               class="absolute mt-2 w-40 bg-white border border-pink-200 rounded-md shadow-lg hidden z-20">
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50">Cake</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50">Coffee</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-pink-50">Ice Cream</a>
+          </div>
+        </div>
+
+        <div class="bg-pink-100 px-4 py-2 rounded-full flex items-center w-60">
+          <input type="text" id="searchInput" placeholder="Cari manisan"
+                 class="bg-transparent outline-none text-sm text-pink-600 w-full placeholder-pink-400" />
+          <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" stroke-width="2" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Cart & Profile -->
+      <div class="flex items-center gap-4">
+        <a href="keranjang.html" class="text-pink-400">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h4l2.68 13.39a1 1 0 00.99.81h9.66
+                    a1 1 0 00.98-.8l1.38-7.6H6" />
+          </svg>
+        </a>
+
+        <div class="relative" id="profileWrapper">
+          <img id="profileBtn" src="navbarfoto/profile.jpg" alt="Profil"
+               class="w-8 h-8 rounded-full object-cover cursor-pointer" />
+          <div id="profileDropdown"
+               class="absolute right-0 mt-2 w-64 bg-white border border-pink-300 rounded-lg shadow-lg p-4 hidden z-50">
+            <div class="flex flex-col items-center mb-4">
+              <div class="w-20 h-20 rounded-full bg-pink-200 flex items-center justify-center text-4xl font-bold text-pink-600">
+                P
+              </div>
+              <p class="mt-2 text-sm text-gray-800">prisa...@gmail.com</p>
+              <button onclick="location.href='profile.html'"
+                      class="text-xs text-gray-500 underline mt-1">
+                ✏️ Edit profile
+              </button>
+            </div>
+            <div class="border-t border-pink-200">
+              <a href="profile.html" class="flex items-center gap-2 py-2 px-2 hover:bg-pink-50">Akun Saya</a>
+              <a href="keranjang.html" class="flex items-center gap-2 py-2 px-2 hover:bg-pink-50">Pesanan Saya</a>
+            </div>
+            <div class="mt-3 border-t border-pink-200 pt-2 text-center">
+              <a href="login.html" class="text-red-500 text-sm hover:underline">Log out</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="max-w-7xl mx-auto mt-6 px-4">
+    <img src="navbarfoto/foto promosi ice.jpg" alt="Promo Earl Grey"
+         class="w-full rounded-lg shadow-md object-cover" />
+  </section>
+
+  <!-- Categories -->
+  <section class="max-w-4xl mx-auto mt-6 flex justify-around items-center px-4 space-x-4 overflow-x-auto">
+    <div class="text-center">
+      <img src="navbarfoto/logocoffee.jpg" alt="Coffee" class="w-12 h-12 mx-auto" />
+      <p class="mt-2 text-sm text-gray-700">Coffee</p>
+    </div>
+    <div class="text-center">
+      <img src="navbarfoto/logocae.jpg" alt="Pancake" class="w-12 h-12 mx-auto" />
+      <p class="mt-2 text-sm text-gray-700">Pancake</p>
+    </div>
+    <div class="text-center">
+      <img src="navbarfoto/logoicecream.jpg" alt="Ice Cream" class="w-12 h-12 mx-auto" />
+      <p class="mt-2 text-sm text-gray-700">Ice Cream</p>
+    </div>
+    <div class="text-center">
+      <img src="navbarfoto/logocake.jpg" alt="Cake" class="w-12 h-12 mx-auto" />
+      <p class="mt-2 text-sm text-gray-700">Cake</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="max-w-7xl mx-auto px-6 py-6">
+    <div class="flex flex-wrap gap-4 items-center">
+      <h2 class="text-lg font-semibold">Cake Terlaris</h2>
+      <select class="bg-gray-100 text-sm px-3 py-2 border rounded focus:outline-none">
+        <option>-Pilihan Budget-</option>
+      </select>
+      <select class="bg-gray-100 text-sm px-3 py-2 border rounded focus:outline-none">
+        <option>-Urutkan-</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Produk Container -->
+  <div id="data-product" class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-6"></div>
+
+  <!-- Footer -->
+  <footer id="footer" class="bg-pink-100 pt-10">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-gray-800">
+      <!-- Contact Info -->
+      <div>
+        <h3 class="font-bold text-xl mb-4">Contact us</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-2">
+            📧 prisaprisa601@gmail.com
+          </li>
+          <li class="flex items-center gap-2">
+            ☎️ 9510‑1613‑1462
+          </li>
+          <li class="flex items-center gap-2">
+            📍 Sukatani, Depok
+          </li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h3 class="font-bold text-xl mb-4">Support</h3>
+        <ul class="space-y-2 text-sm">
+          <li>Privacy Policy</li>
+          <li>Terms</li>
+        </ul>
+      </div>
+
+      <!-- Available On -->
+      <div>
+        <h3 class="font-bold text-xl mb-4">Available On</h3>
+        <ul class="space-y-2 text-sm">
+          <li>Grab</li>
+        </ul>
+      </div>
+
+      <!-- Large Logo -->
+      <div class="flex justify-end">
+        <img src="footer/logo.jpg" alt="Dolcetta Logo" class="w-60 object-contain" />
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <img src="footer/fotobawah.jpg" alt="Cake strip" class="w-full h-32 object-cover" />
+    </div>
+
+    <div class="bg-pink-200 py-4 text-center text-sm text-gray-700">
+      ©2025 Dolcetta. Hak cipta terlindungi
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Kategori dropdown
+    const btn = document.getElementById('dropdownButton'),
+          menu = document.getElementById('dropdownMenu'),
+          wrap = document.getElementById('dropdownWrapper');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      menu.classList.toggle('hidden');
+    });
+    document.addEventListener('click', e => {
+      if (!wrap.contains(e.target)) menu.classList.add('hidden');
+    });
+
+    // Profil dropdown
+    const pBtn = document.getElementById('profileBtn'),
+          pMenu = document.getElementById('profileDropdown'),
+          pWrap = document.getElementById('profileWrapper');
+    pBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      pMenu.classList.toggle('hidden');
+    });
+    document.addEventListener('click', e => {
+      if (!pWrap.contains(e.target)) pMenu.classList.add('hidden');
+    });
+
+    // Fetch dan tampilkan produk
+    let semuaProduk = [];
+    async function ambilDataProduk() {
+      try {
+        const res = await fetch('https://fakestoreapi.com/products');
+        semuaProduk = await res.json();
+        tampilkanProduk(semuaProduk);
+      } catch {
+        document.getElementById('data-product').innerHTML = '<p class="text-red-500">Gagal memuat produk.</p>';
+      }
+    }
+
+    document.getElementById('searchInput')?.addEventListener('input', function () {
+      const kw = this.value.toLowerCase();
+      tampilkanProduk(semuaProduk.filter(p =>
+        p.title.toLowerCase().includes(kw) ||
+        p.description.toLowerCase().includes(kw)
+      ));
+    });
+
+    function tampilkanProduk(list) {
+      const html = list.map(p => `
+        <div onclick='lihatDetail(${JSON.stringify(p).replace(/'/g,"&apos;")})'
+             class="cursor-pointer bg-white shadow-md rounded-lg p-4 w-60 flex flex-col hover:shadow-lg">
+          <img src="${p.image}" alt="${p.title}" class="w-full h-40 object-contain mb-3" />
+          <h3 class="text-sm font-semibold mb-1 line-clamp-2">${p.title}</h3>
+          <p class="text-xs text-gray-500 mb-2 line-clamp-2">${p.description}</p>
+          <div class="mt-auto flex justify-between items-center">
+            <p class="text-pink-400 font-bold">Rp${p.price}</p>
+            <button onclick="event.stopPropagation(); tambahKeKeranjang(${p.id})"
+                    class="hover:bg-pink-50 p-2 rounded">
+              🛒
+            </button>
+          </div>
+        </div>`).join('');
+      document.getElementById('data-product').innerHTML = html;
+    }
+
+    function lihatDetail(p) {
+      localStorage.setItem('produkDetail', JSON.stringify(p));
+      location.href = 'info.html';
+    }
+
+    async function tambahKeKeranjang(id) {
+      try {
+        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const p = await res.json();
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(p);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Produk berhasil ditambahkan ke keranjang!');
+      } catch {
+        alert('Gagal menambahkan produk.');
+      }
+    }
+
+    ambilDataProduk();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dollcetta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="bg-pink-100 text-pink-600 px-4 py-2 md:px-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="footer/logo.jpg" alt="Logo" class="h-8 w-8" />
+        <span class="font-bold text-md">Dollcetta</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-4 text-sm items-center">
+        <a href="#beranda" class="hover:text-white">Beranda</a>
+        <a href="#dollcetta" class="hover:text-white">Tentang Dollcetta</a>
+        <a href="#promo" class="hover:text-white">Promo Special</a>
+        <a href="#footer" class="hover:text-white">Footer</a>
+        <a href="daftar.html" class="bg-pink-500 text-white px-4 py-1 rounded-full hover:bg-pink-600">
+          Daftar / Masuk
+        </a>
+      </div>
+
+      <!-- Burger -->
+      <button id="burgerBtn" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="navMenu" class="md:hidden hidden px-4 py-2 text-sm">
+      <a href="#beranda" class="block py-1 hover:text-white">Beranda</a>
+      <a href="#dollcetta" class="block py-1 hover:text-white">Tentang Dollcetta</a>
+      <a href="#promo" class="block py-1 hover:text-white">Promo Special</a>
+      <a href="#footer" class="block py-1 hover:text-white">Footer</a>
+      <a href="daftar.html" class="block py-2 bg-pink-500 text-white text-center rounded-full hover:bg-pink-600">
+        Daftar / Masuk
+      </a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 md:px-6 mt-4">
+
+    <!-- Banner -->
+    <div class="w-full mb-6">
+      <img src="navbarfoto/foto promosi ice.jpg" alt="Banner" class="w-full rounded-md shadow-md" />
+    </div>
+
+    <!-- Kategori -->
+    <div class="flex justify-center gap-16 my-2">
+    <div class="flex gap-5 overflow-x-auto mb-2 justfy-center">
+      <button class="flex flex-col items-center gap-1 text-sm">
+        <img src="navbarfoto/logocoffee.jpg" class="h-10" />
+        Coffee
+      </button>
+      <button class="flex flex-col items-center gap-1 text-sm">
+        <img src="navbarfoto/logocae.jpg" class="h-10" />
+        Pancake
+      </button>
+      <button class="flex flex-col items-center gap-1 text-sm">
+        <img src="navbarfoto/logoicecream.jpg" class="h-10" />
+        Ice Cream
+      </button>
+      <button class="flex flex-col items-center gap-1 text-sm">
+        <img src="navbarfoto/logocake.jpg" class="h-10" />
+        Cake
+      </button>
+    </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+      <h2 class="text-lg font-semibold">Cake Terlaris</h2>
+      <div class="flex gap-2">
+        <select class="border rounded px-2 py-1 text-sm">
+          <option>-Pilihan Budget-</option>
+          <option>Rp 100k - 200k</option>
+        </select>
+        <select class="border rounded px-2 py-1 text-sm">
+          <option>-Urutkan-</option>
+          <option>Termurah</option>
+          <option>Terlaris</option>
+        </select>
+      </div>
+    </div>
+
+<body class="bg-white">
+    <!-- Grid Cake Menu: 3 kolom x 3 baris -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
+      <!-- Loop item 1-9 -->
+      <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95">
+
+        <img src="menucake/cake1.jpg" class="mx-auto w-50 h-50 object-cover" alt="Super Oat Carrot">
+        <p class="mt-2 font-semibaold">Super Oat Carrot (20cm)</p>
+        <p class="text-sm">Rp.125.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐⭐</div>
+      </div>
+  
+      <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+
+        <img src="menucake/cake2.jpg" class="mx-auto w-50 h-50 object-cover" alt="Super Quiche">
+        <p class="mt-2 font-semibold">Super Quiche (20cm)</p>
+        <p class="text-sm">Rp.429.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐</div>
+      </div>
+  
+      <div 
+      onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+      class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+    >
+    
+        <img src="menucake/cake3.jpg" class="mx-auto w-50 h-50 object-cover" alt="Super Tiramisu">
+        <p class="mt-2 font-semibold">Super Tiramisu (20cm)</p>
+        <p class="text-sm">Rp.742.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐⭐</div>
+      </div>
+  
+      <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+
+        <img src="menucake/cake4.jpg" class="mx-auto w-50 h-50 object-cover" alt="Super Berry Banana">
+        <p class="mt-2 font-semibold">Super Berry Banana (20cm)</p>
+        <p class="text-sm">Rp.148.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐</div>
+      </div>
+  
+      <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+
+        <img src="menucake/cake5.jpg" class="mx-auto w-50 h-50 object-cover" alt="Tres Leches Red Berry">
+        <p class="mt-2 font-semibold">Tres Leches Red Berry (20cm)</p>
+        <p class="text-sm">Rp.468.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐⭐</div>
+    </div>
+      
+      <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-gray-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+
+        <img src="menucake/cake6.jpg" class="mx-auto w-50 h-50 object-cover" alt="Matcha Roll Cake">
+        <p class="mt-2 font-semibold">Chesse Mille Feullie (20x20cm)</p>
+        <p class="text-sm">Rp.190.000,00</p>
+        <div class="text-yellow-400 mt-1">⭐⭐⭐⭐</div>
+      </div>
+    </div>
+  
+  
+    <script>
+      function showDetails(name, price) {
+        document.getElementById("cakeName").innerText = name;
+        document.getElementById("cakePrice").innerText = price;
+        document.getElementById("detailPanel").classList.remove("translate-x-full");
+      }
+  
+      function closeDetails() {
+        document.getElementById("detailPanel").classList.add("translate-x-full");
+      }
+    </script>
+  </div>
+ 
+  <!-- Tentang Kami -->
+   <div id="dollcetta">
+<section class="text-center py-12 px-6 bg-white" id="tentang">
+  <h2 class="text-pink-400 text-2xl font-semibold mb-4">Tentang Kami</h2>
+  <h1 class="text-4xl font-bold text-pink-700 italic">Dol<span class="text-pink-500 font-normal" style="font-family: 'Brush Script MT', cursive;">cetta</span></h1>
+  
+  <h3 class="text-xl font-semibold mt-6 text-gray-800">Best Seller Cake</h3>
+  <p class="max-w-2xl mx-auto mt-4 text-gray-700 text-sm leading-relaxed">
+    Kami hadir dari kecintaan yang mendalam terhadap rasa dan kualitas.<br>
+    Setiap cangkir kopi yang kami sajikan, setiap potong kue yang kami panggang, hingga setiap manisan yang kami kemas,
+    dibuat dengan bahan pilihan, resep terbaik, dan tentu saja—sepenuh hati.
+  </p>
+  
+  <a href="daftar.html" class="inline-block mt-6 px-6 py-2 bg-pink-200 text-pink-700 font-semibold rounded-full hover:bg-pink-300 transition">
+    See all
+  </a>
+</section>
+ </div>
+
+ 
+ <!-- Bahan-Bahan Yang Digunakan -->
+<section class="bg-pink-50 py-12 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    
+    <!-- Teks -->
+    <div>
+      <h6 class="text-2xl font-bold text-gray-800 mb-4">Bahan - Bahan Yang di Gunakan</h6>
+      <p class="text-gray-700 text-base leading-relaxed mb-6">
+        Kami percaya bahwa rasa yang lezat dimulai dari bahan yang berkualitas.
+        Itulah mengapa kami sangat selektif dalam memilih setiap komponen yang kami gunakan untuk kopi, cake, dan manisan kami.
+      </p>
+      <a href="daftar.html" class="bg-pink-200 text-pink-700 font-semibold py-2 px-4 rounded-full hover:bg-pink-300 transition">
+        Mulai Mencoba!
+      </a>
+    </div>
+
+    <!-- Galeri Gambar -->
+    <div class="grid grid-cols-2 gap-4">
+      <img src="pembuatan/kopi.jpg" alt="Kopi diseduh" class="rounded-lg shadow-md object-cover">
+      <img src="pembuatan/cake.jpg" alt="Kue dihias" class="rounded-lg shadow-md object-cover">
+      <img src="pembuatan/icecream.jpg" alt="Bahan mentah" class="rounded-lg shadow-md object-cover">
+      <img src="pembuatan/puncake.jpg" alt="Produk pancake" class="rounded-lg shadow-md object-cover">
+    </div>
+
+
+</section>
+
+<!-- Section Promo Coffee -->
+<section class="bg-pink-100 py-10">
+  <div id="promo"></div>
+  <div class="text-center mb-8">
+    <h2 class="text-4xl font-semibold">
+      <span class="text-pink-500 italic font-bold">Promo</span> Coffee
+    </h2>
+    <p class="text-gray-600 mt-2">Temukan berbagai promo menarik di sini!</p>
+  </div>
+
+  <div class="flex justify-center gap-14">
+    <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-white-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+  <img src="promo/kopi1.jpg" class="rounded-xl shadow-lg" alt="Promo 1" />
+  </div>
+
+   <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-white-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+  <img src="promo/kopi2.jpg" class="rounded-xl shadow-lg" alt="Promo 2" />
+  </div>
+
+   <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-white-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+  <img src="promo/kopi3.jpg" class="rounded-xl shadow-lg" alt="Promo 3" />
+  </div>
+
+   <div 
+  onclick="showDetails('Super Oat Carrot', 'Rp.125.000,00')" 
+  class="cursor-pointer bg-white-100 p-4 shadow rounded text-center transform transition duration-300 hover:scale-105 hover:shadow-lg active:scale-95"
+>
+  <img src="promo/kopi4.jpg" class="rounded-xl shadow-lg" alt="Promo 4" />
+  </div>
+</div>
+  
+</section>
+
+<section class="bg-pink-50 py-10 px-4 md:px-10">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Ulasan Untuk <span class="text-pink-500">DolCetta</span></h2>
+    <p class="text-lg text-gray-600 mb-8">⭐ <span class="font-semibold text-black text-xl">4.9/5</span> dari 1287 Ulasan Pelanggan</p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Ulasan Card -->
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Pelayanannya oke, cepat tanggap, hasil bagus dan rapi sesuai keinginan 😊</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">A</div>
+          <span class="font-semibold text-gray-800">Adriana</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Luar biasa responnya cepat, hasil memuaskan, memudahkan sekali, sukses selalu!</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">RB</div>
+          <span class="font-semibold text-gray-800">Ramon Bernanto</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Puas dengan pelayanannya</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">RW</div>
+          <span class="font-semibold text-gray-800">Retna Mewing</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Pesan cake di Web Shop Cake ternyata nggak salah pilih! Rasanya enak banget, lembut, dan manisnya pas. Anak-anak di rumah juga suka banget. Thank you ya Web Shop Cake!</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">J</div>
+          <span class="font-semibold text-gray-800">Jionara Ceky</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Pelayanan cepat dan ramah, cake datang tepat waktu dan rasanya enak banget. Nggak nyesel pesan di sini! 😊</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">AS</div>
+          <span class="font-semibold text-gray-800">Aswin Aswari</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 shadow-md flex flex-col justify-between h-full">
+        <div>
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Udah beberapa kali pesen dan hasilnya selalu konsisten enak. Harganya juga masih masuk akal buat kualitas sebagus ini.</p>
+        </div>
+        <div class="flex items-center">
+          <div class="bg-pink-200 text-pink-700 font-bold w-8 h-8 rounded-full flex items-center justify-center mr-2">CH</div>
+          <span class="font-semibold text-gray-800">Cavan Hadrian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-pink-100 pt-10">
+  <div id="footer">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-13 text-gray-800">
+    <!-- Contact Info -->
+    <div>
+      <h3 class="font-bold text-xl mb-4">Contact us</h3>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 12H8m0 0l4-4m-4 4l4 4"></path></svg>
+          <a href="https://www.instagram.com/prisaja_a/">
+          prisaprisa601@gmail.com
+        </a>
+        </li>
+      </a>
+        <li class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h2l3.6 7.59-1.35 2.44A1 1 0 008 17h9a1 1 0 001-1v-1H8.42a.5.5 0 01-.47-.32L7 12h10a1 1 0 00.92-.61l3.24-7.24a1 1 0 00-.92-1.39H5.21l-.94-2H1"></path></svg>
+          9510-1613-1462
+        </li>
+        <li class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 12l4.243-4.243m0 0L8.343 3.757 3.757 8.343m0 0L12 16.586l4.243-4.243"></path></svg>
+          <a href="https://www.google.com/maps/place/Jl.Dongkal,+Sukatani,+Kec.+Tapos,+Kota+Depok,+Jawa+Barat/@-6.3930469,106.8783528,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69eb6cfc3ff1dd:0x4770d15008f9d7da!8m2!3d-6.3930469!4d106.8809277!16s%2Fg%2F1hm3_qxsm?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D">
+          Sukatani jl. dongkal
+        </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div>
+      <h3 class="font-bold text-xl mb-4">Support</h3>
+      <ul class="space-y-2 text-sm">
+        <li>Privacy Policy</li>
+        <li>Terms</li>
+      </ul>
+    </div>
+
+    <!-- Available On -->
+    <div>
+      <h3 class="font-bold text-xl mb-4">Available On</h3>
+      <ul class="space-y-2 text-sm">
+        <li>GrabeFood</li>
+      </ul>
+    </div>
+
+    <!-- Logo -->
+    <div class="flex justify-end items-start pr-1">
+      <img src="footer/logo.jpg" alt="Dolcetta Logo" class="w-60 object-contain" />
+    </div>
+  </div>
+
+  <!-- Gambar Strip Kue -->
+  <div class="mt-6">
+    <img src="footer/fotobawah.jpg" alt="Cake strip" class="w-full h-32 object-cover" />
+  </div>
+
+  <!-- Copyright -->
+  <div class="bg-pink-200 py-4 text-center text-sm text-gray-700">
+    ©2025 DolCetta. Hak cipta terlindungi
+  </div>
+
+  <script>
+    const burger = document.getElementById('burgerBtn');
+    const navMenu = document.getElementById('navMenu');
+    burger.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+</footer>
+</body>
+</html>

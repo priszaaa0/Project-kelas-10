@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Dolcetta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- Top bar -->
+  <div class="bg-pink-100 text-pink-600 text-sm py-2 flex items-center px-4">
+    <a href="javascript:history.back()" class="flex items-center gap-1">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span class="underline">kembali</span>
+    </a>
+    <h1 class="flex-1 text-center font-medium">Profile</h1>
+    <!-- Spacer kosong agar judul tetap di tengah -->
+    <div class="w-6"></div>
+  </div>
+
+  <!-- Konten utama -->
+  <div class="max-w-lg mx-auto mt-8 px-4">
+
+    <!-- Avatar + edit icon -->
+    <div class="relative w-32 h-32 mx-auto">
+      <div class="w-full h-full bg-pink-200 rounded-full flex items-center justify-center text-5xl font-bold text-gray-700">
+        P
+      </div>
+      <button class="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow">
+        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15.232 5.232l3.536 3.536M16.757 2.757a2.828 2.828 0 114 4L7 20H3v-4L16.757 2.757z" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Form profile -->
+    <form class="mt-8 space-y-6">
+      <!-- Nickname -->
+      <div>
+        <label for="nickname" class="block text-pink-500 font-medium mb-1">Nickname</label>
+        <input id="nickname" type="text" value="pritzaa_" 
+               class="w-full border border-pink-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200" />
+      </div>
+
+      <!-- Gmail -->
+      <!-- Gmail -->
+      <div>
+        <label for="email" class="block text-pink-500 font-medium mb-1">Gmail</label>
+        <input id="email" type="email" value="prisaprisa601@gmail.com" readonly
+              class="w-full border border-pink-300 rounded px-3 py-2 bg-gray-100 text-gray-600 cursor-not-allowed" />
+      </div>
+
+
+      <!-- Bahasa -->
+      <!-- Bahasa -->
+<!-- Bahasa -->
+        <div>
+          <label for="language" class="block text-pink-500 font-medium mb-1">Bahasa</label>
+          <select id="language" 
+                  class="w-full border border-pink-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-200">
+            <option>Bahasa Indonesia</option>
+            <option>English</option>
+            <option>日本語 (Japanese)</option>
+            <option>한국어 (Korean)</option>
+            <option>Français (French)</option>
+            <option>Deutsch (German)</option>
+          </select>
+        </div>
+
+
+
+      <!-- Log out -->
+      <div class="text-center mt-4">
+        <a href="daftar.html">
+        <button type="button" class="text-pink-500 underline font-medium">Log out</button>
+      </a>
+      </div>
+    </form>
+
+  </div>
+
+</body>
+</html>

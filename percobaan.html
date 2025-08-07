@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-white font-sans" x-data="{ showModal: false, loading: false, success: false, selected: { name: 'DANA', image: 'pembayaran/dana.jpg' } }">
+
+  <!-- Navbar -->
+  <header class="bg-pink-100 py-2 px-4 flex justify-between items-center text-sm text-pink-500 relative">
+    <a href="home.html" class="flex items-center gap-1 text-pink-500 absolute left-4 top-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      <span>kembali</span>
+    </a>
+    <span class="mx-auto">Checkout</span>
+    <span class="invisible">...</span>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <section class="md:col-span-2 space-y-4" id="cartItems"></section>
+
+    <aside class="border border-pink-300 p-6 space-y-4 h-fit">
+      <div class="flex justify-between text-sm">
+        <span>Subtotal</span><span id="total">Rp 0</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span>Pajak</span><span id="tax">Rp 0</span>
+      </div>
+      <hr class="border-t border-pink-200">
+      <div class="flex justify-between font-semibold">
+        <span>Total</span><span id="grandTotal">Rp 0</span>
+      </div>
+
+      <!-- Metode Pembayaran -->
+      <div>
+        <label class="block text-sm mb-1">Metode Pembayaran</label>
+        <div x-data="{ open: false }" class="relative w-64">
+          <button @click="open = !open" class="w-full border border-pink-300 rounded p-2 flex items-center gap-2 bg-white">
+            <img :src="selected.image" :alt="selected.name" class="h-5">
+            <span class="text-sm" x-text="selected.name"></span>
+            <svg class="ml-auto w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div x-show="open" @click.away="open = false" class="absolute mt-1 w-full bg-white border border-pink-300 rounded shadow z-10">
+            <ul class="max-h-60 overflow-y-auto">
+              <template x-for="option in [
+                { name: 'DANA', image: 'pembayaran/dana.jpg' },
+                { name: 'OVO', image: 'pembayaran/ovo.jpg' },
+                { name: 'GoPay', image: 'pembayaran/gopay.jpg' },
+                { name: 'COD', image: 'pembayaran/cod.jpg' }
+              ]" :key="option.name">
+                <li @click="selected = option; open = false"
+                    class="flex items-center px-4 py-2 hover:bg-pink-50 cursor-pointer">
+                  <img :src="option.image" :alt="option.name" class="h-5 mr-2">
+                  <span class="text-sm" x-text="option.name"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alamat -->
+      <div class="mt-4">
+        <label class="flex items-center gap-2 text-sm text-gray-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414M12 12c2.485 0 4.5-2.015 4.5-4.5S14.485 3 12 3 7.5 5.015 7.5 7.5 9.515 12 12 12z" />
+          </svg>
+          Alamat
+        </label>
+        <input type="text" id="alamat" class="mt-1 w-full border border-pink-300 rounded px-3 py-2 text-sm" placeholder="jl.dongkal ,sukatani cibaduyut">
+      </div>
+
+      <button @click="const selectedItems = document.querySelectorAll('.item-checkbox:checked'); const alamat = document.getElementById('alamat').value.trim(); if (selectedItems.length === 0) { alert('Pilih setidaknya satu produk.'); return; } if (!alamat) { alert('Alamat wajib diisi.'); return; } showModal = true;"
+              class="bg-pink-100 text-pink-600 w-full py-2 rounded text-lg font-semibold hover:bg-pink-200">
+        Beli Sekarang
+      </button>
+    </aside>
+  </main>
+
+  <!-- Modal -->
+  <div x-show="showModal" x-transition class="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+    <div class="bg-white border border-pink-300 p-8 rounded shadow-lg text-center max-w-md w-full">
+
+      <!-- Konfirmasi -->
+      <template x-if="!loading && !success">
+        <div>
+          <h2 class="text-lg font-semibold mb-4">Yakin Ingin Melanjutkan Transaksi?</h2>
+          <div class="flex justify-center gap-4">
+            <button @click="showModal = false" class="bg-pink-100 text-pink-600 px-6 py-2 rounded hover:bg-pink-200">Batalkan</button>
+            <button @click="loading = true; setTimeout(() => { loading = false; success = true }, 2000)"
+                    class="bg-pink-100 text-pink-600 px-6 py-2 rounded hover:bg-pink-200">Lanjutkan</button>
+          </div>
+        </div>
+      </template>
+
+      <!-- Loading -->
+      <template x-if="loading">
+        <div class="relative mt-4 flex flex-col items-center justify-center">
+          <button @click="$root.showModal = false" class="absolute top-0 left-0 text-pink-500 text-sm hover:underline">
+            <a href="checkout.html">← Batalkan</a>
+          </button>
+          <div class="flex items-center mt-6">
+            <svg class="animate-spin h-6 w-6 text-pink-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <span class="text-pink-600">Memproses transaksi...</span>
+          </div>
+        </div>
+      </template>
+
+      <!-- Sukses -->
+      <template x-if="success">
+        <div class="flex flex-col items-center space-y-4 mt-4">
+          <div class="bg-green-100 rounded-full p-4">
+            <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-green-700">Transaksi Berhasil!</h2>
+          <div class="text-left text-sm text-gray-700 w-full bg-gray-50 border border-gray-200 rounded p-4 space-y-2">
+            <p><span class="font-semibold">Metode Pembayaran:</span> <span x-text="selected.name"></span></p>
+            <p><span class="font-semibold">Alamat:</span> <span x-text="document.getElementById('alamat').value"></span></p>
+            <p><span class="font-semibold">Total Bayar:</span> <span id="totalBayar"></span></p>
+          </div>
+          <button @click="showModal = false; success = false"
+                  class="mt-4 bg-pink-100 text-pink-600 px-6 py-2 rounded hover:bg-pink-200">Tutup</button>
+        </div>
+      </template>
+
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const cartContainer = document.getElementById('cartItems');
+
+    function formatRupiah(amount) {
+      return "Rp " + amount.toLocaleString("id-ID");
+    }
+
+    function updateTotal() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const checkboxes = document.querySelectorAll(".item-checkbox");
+      let total = 0;
+
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const index = parseInt(checkbox.dataset.index);
+          const quantity = cart[index].quantity || 1;
+          total += cart[index].price * quantity;
+        }
+      });
+
+      const tax = total * 0.1;
+      const grandTotal = total + tax;
+
+      document.getElementById("total").textContent = formatRupiah(total);
+      document.getElementById("tax").textContent = formatRupiah(tax);
+      document.getElementById("grandTotal").textContent = formatRupiah(grandTotal);
+      document.getElementById("totalBayar").textContent = formatRupiah(grandTotal); // Update total bayar
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function changeQuantity(index, delta) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart[index].quantity = (cart[index].quantity || 1) + delta;
+      if (cart[index].quantity < 1) cart[index].quantity = 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartContainer.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<p class="text-gray-500">Keranjang kamu kosong.</p>';
+        updateTotal();
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const quantity = item.quantity || 1;
+        const itemHTML = `
+          <div class="flex items-start gap-4">
+            <div class="pt-6 pl-2">
+              <input type="checkbox" class="item-checkbox w-6 h-6 accent-pink-500" data-index="${index}" checked />
+            </div>
+            <div class="py-4 px-6 flex justify-between items-center w-full rounded-lg shadow">
+              <div class="flex items-center gap-6">
+                <img src="${item.image}" alt="${item.name}" onerror="this.src='fallback.jpg'" class="w-[100px] h-[100px] object-contain rounded" />
+                <div>
+                  <h2 class="text-xl font-bold text-pink-700">${item.name || 'undefined'}</h2>
+                  <p class="text-lg font-semibold text-gray-800 mt-1">${formatRupiah(item.price)}</p>
+                  <div class="flex items-center mt-3 border border-pink-500 rounded overflow-hidden w-max">
+                    <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">−</button>
+                    <div class="px-4 py-1 text-pink-600">${quantity}</div>
+                    <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">+</button>
+                  </div>
+                </div>
+              </div>
+              <button onclick="removeItem(${index})" class="text-red-500 hover:underline text-sm">Hapus</button>
+            </div>
+          </div>
+        `;
+        cartContainer.insertAdjacentHTML('beforeend', itemHTML);
+      });
+
+      document.querySelectorAll(".item-checkbox").forEach((checkbox) => {
+        checkbox.addEventListener("change", updateTotal);
+      });
+
+      updateTotal();
+    }
+
+    // Render the cart items on page load
+    renderCart();
+
+    // Load product from localStorage for checkout
+    const product = JSON.parse(localStorage.getItem('checkoutProduct'));
+    if (product) {
+      const totalBayar = product.price * product.qty;
+      document.getElementById("totalBayar").textContent = formatRupiah(totalBayar);
+    }
+  </script>
+</body>
+</html>

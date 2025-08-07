@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Produk</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white font-sans text-gray-800">
+
+  <!-- Header -->
+  <div class="bg-pink-100 text-center py-2 text-sm text-pink-800 font-semibold">
+    Informasi
+  </div>
+  <div class="p-4 text-sm text-pink-600 flex items-center gap-1 cursor-pointer">
+    <span class="text-xl">&larr;</span>
+    <a href="home.html">
+      <span>kembali</span>
+    </a>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start border border-pink-400 p-6 rounded-xl mb-10">
+
+    <!-- Product Image -->
+    <div class="flex justify-center">
+      <img id="productImage" src="https://via.placeholder.com/300x300" alt="Product Image" class="rounded-xl w-80 h-80 object-contain border" />
+    </div>
+
+    <!-- Product Info -->
+    <div>
+      <h1 class="text-2xl font-semibold mb-1" id="productName">Nama Produk</h1>
+      <p class="text-lg font-bold text-gray-800 mb-6" id="productPrice">Rp 0</p>
+
+      <label class="block font-medium text-pink-600 mb-1">Jumlah</label>
+      <div class="flex items-center gap-2 mb-4">
+        <button id="decreaseQty" class="px-3 py-1 border text-lg font-bold text-pink-600">-</button>
+        <input type="number" id="qty" value="1" min="1" class="w-16 text-center border rounded py-1">
+        <button id="increaseQty" class="px-3 py-1 border text-lg font-bold text-pink-600">+</button>
+      </div>
+
+      <div class="mb-4">
+        <label class="block font-medium text-pink-600 mb-1">Total :</label>
+        <input type="text" id="totalPrice" class="border rounded px-3 py-2 w-full font-semibold" readonly>
+      </div>
+
+      <div class="flex gap-2 mb-3">
+        <button id="addToCartBtn" class="bg-pink-200 hover:bg-pink-300 text-pink-800 font-medium px-4 py-2 rounded flex items-center gap-2">
+          🛒 Tambahkan ke keranjang
+        </button>
+
+        <!-- Tombol Beli Sekarang -->
+        <button id="beliSekarangBtn"
+          class="bg-pink-100 text-pink-600 px-4 py-2 rounded hover:bg-pink-200">
+          Beli Sekarang
+        </button>
+      </div>
+
+      <div class="text-sm text-gray-600 mt-2 flex items-center gap-2 cursor-pointer">
+        🤍 Tambahkan ke Favorite
+      </div>
+    </div>
+  </div>
+
+  <!-- Informasi -->
+  <div class="max-w-4xl mx-auto px-4 pb-12">
+    <h2 class="text-2xl font-semibold mb-2">Informasi</h2>
+    <p class="text-gray-700 leading-relaxed">
+      Perpaduan klasik yang selalu dinantikan! Nikmatnya Tres Leches dilengkapi lapisan krim kocok dan potongan buah segar strawberry yang dicampur madu memberikan sensasi manis-asam yang menyenangkan.
+    </p>
+  </div>
+
+  <!-- Testimoni Pelanggan -->
+  <section class="bg-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-pink-800 mb-8 text-center">Testimoni Pelanggan</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Testimoni 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-pink-200">
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Pelayanannya oke, cepat tanggap, hasil bagus dan rapi sesuai keinginan 😊</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-pink-200 text-pink-800 rounded-full flex items-center justify-center font-bold">A</div>
+            <div class="font-semibold text-gray-800">Adriana</div>
+          </div>
+        </div>
+        
+        <!-- Testimoni 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-pink-200">
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Kualitas produknya sangat baik dan pengirimannya juga cepat. Suka banget!</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-pink-200 text-pink-800 rounded-full flex items-center justify-center font-bold">R</div>
+            <div class="font-semibold text-gray-800">Rina</div>
+          </div>
+        </div>
+        
+        <!-- Testimoni 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-pink-200">
+          <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">Saya suka dengan packaging-nya, lucu dan rapi. Recomended banget pokoknya!</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-pink-200 text-pink-800 rounded-full flex items-center justify-center font-bold">D</div>
+            <div class="font-semibold text-gray-800">Dewi</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi -->
+<div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-30 hidden items-center justify-center z-50">
+  <div class="bg-white border border-pink-300 p-8 rounded shadow-lg text-center max-w-md w-full">
+    <h2 class="text-lg font-semibold mb-4">Yakin Ingin Melanjutkan Transaksi?</h2>
+    <div id="loadingText" class="hidden justify-center items-center mt-4">
+      <svg class="animate-spin h-6 w-6 text-pink-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+      </svg>
+      <span class="text-pink-600">Memproses transaksi...</span>
+    </div>
+    <div class="flex justify-center gap-4 mt-4">
+      <button id="btnBatal" class="bg-pink-100 text-pink-600 px-6 py-2 rounded hover:bg-pink-200">Batalkan</button>
+      <button id="btnLanjut" class="bg-pink-100 text-pink-600 px-6 py-2 rounded hover:bg-pink-200">Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sukses -->
+<div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white max-w-xl mx-auto p-6 rounded-lg shadow-lg relative">
+    <img src="STATUS_IMAGE.png" class="w-full max-h-[500px] object-contain" alt="Status Pesanan">
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const cartContainer = document.getElementById("cartItems");
+
+  function formatRupiah(amount) {
+    return "Rp " + amount.toLocaleString("id-ID");
+  }
+
+  function updateTotal() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkboxes = document.querySelectorAll(".item-checkbox");
+    let total = 0;
+
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.checked) {
+        const index = parseInt(checkbox.dataset.index);
+        const quantity = cart[index].quantity || 1;
+        total += cart[index].price * quantity;
+      }
+    });
+
+    const totalElement = document.getElementById("total");
+    const taxElement = document.getElementById("tax");
+    const grandTotalElement = document.getElementById("grandTotal");
+
+    if (totalElement && taxElement && grandTotalElement) {
+      const tax = total * 0.1;
+      const grandTotal = total + tax;
+
+      totalElement.textContent = formatRupiah(total);
+      taxElement.textContent = formatRupiah(tax);
+      grandTotalElement.textContent = formatRupiah(grandTotal);
+    }
+  }
+
+  function removeItem(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  function changeQuantity(index, delta) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!cart[index].quantity) cart[index].quantity = 1;
+    cart[index].quantity += delta;
+    if (cart[index].quantity < 1) cart[index].quantity = 1;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  function renderCart() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cartContainer.innerHTML = "";
+
+    cart.forEach((item, index) => {
+      const quantity = item.quantity || 1;
+      const itemHTML = `
+        <div class="flex items-start gap-4">
+          <div class="pt-6 pl-2">
+            <input type="checkbox" class="item-checkbox w-6 h-6 accent-pink-500" data-index="${index}" checked />
+          </div>
+          <div class="py-4 px-6 flex justify-between items-center w-full rounded-lg shadow">
+            <div class="flex items-center gap-6">
+              <img src="${item.image}" alt="${item.name}" class="w-[100px] h-[100px] object-contain rounded" />
+              <div>
+                <h2 class="text-xl font-bold text-pink-700">${item.name}</h2>
+                <p class="text-lg font-semibold text-gray-800 mt-1">${formatRupiah(item.price)}</p>
+                <div class="flex items-center mt-3 border border-pink-500 rounded overflow-hidden w-max">
+                  <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">−</button>
+                  <div class="px-4 py-1 text-pink-600">${quantity}</div>
+                  <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">+</button>
+                </div>
+              </div>
+            </div>
+            <button onclick="removeItem(${index})" class="text-red-500 hover:underline text-sm">Hapus</button>
+          </div>
+        </div>
+      `;
+      cartContainer.insertAdjacentHTML("beforeend", itemHTML);
+    });
+
+    document.querySelectorAll(".item-checkbox").forEach((checkbox) => {
+      checkbox.addEventListener("change", updateTotal);
+    });
+
+    updateTotal();
+  }
+
+  renderCart();
+
+  window.checkout = function () {
+    const confirmModal = document.getElementById("confirmModal");
+    const successModal = document.getElementById("successModal");
+    const loadingText = document.getElementById("loadingText");
+
+    confirmModal.classList.remove("hidden");
+    loadingText.classList.add("hidden");
+
+    document.getElementById("btnLanjut").onclick = () => {
+      loadingText.classList.remove("hidden");
+      setTimeout(() => {
+        confirmModal.classList.add("hidden");
+        successModal.classList.remove("hidden");
+        localStorage.removeItem("cart");
+        setTimeout(() => {
+          successModal.classList.add("hidden");
+        }, 2000);
+      }, 2000);
+    };
+
+    document.getElementById("btnBatal").onclick = () => {
+      confirmModal.classList.add("hidden");
+    };
+  };
+});
+</script>
+
+  </section>
+
+  <!-- Script -->
+  <script>
+  // Global utility
+  function formatRupiah(angka) {
+    return "Rp " + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  // INFO.HTML Logic
+  if (document.getElementById("beliSekarangBtn")) {
+    const qtyInput = document.getElementById('qty');
+    const totalPriceInput = document.getElementById('totalPrice');
+    const productImage = document.getElementById('productImage');
+    const productName = document.getElementById('productName');
+    const productPrice = document.getElementById('productPrice');
+    const decreaseQtyBtn = document.getElementById('decreaseQty');
+    const increaseQtyBtn = document.getElementById('increaseQty');
+    const beliSekarangBtn = document.getElementById('beliSekarangBtn');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+
+    let unitPrice = 643000;
+
+    function updateTotal() {
+      const jumlah = parseInt(qtyInput.value) || 1;
+      totalPriceInput.value = formatRupiah(jumlah * unitPrice);
+    }
+
+    decreaseQtyBtn.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value);
+      if (val > 1) {
+        qtyInput.value = val - 1;
+        updateTotal();
+      }
+    });
+
+    increaseQtyBtn.addEventListener('click', () => {
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+      updateTotal();
+    });
+
+    qtyInput.addEventListener('input', updateTotal);
+
+    const productFromStorage = JSON.parse(localStorage.getItem('produkDetail'));
+    if (productFromStorage) {
+      productImage.src = productFromStorage.image;
+      productName.textContent = productFromStorage.title;
+      unitPrice = Math.round(productFromStorage.price * 16000);
+      productPrice.textContent = formatRupiah(unitPrice);
+      updateTotal();
+    } else {
+      fetch('https://fakestoreapi.com/products/1')
+        .then(res => res.json())
+        .then(data => {
+          productImage.src = data.image;
+          productName.textContent = data.title;
+          unitPrice = Math.round(data.price * 16000);
+          productPrice.textContent = formatRupiah(unitPrice);
+          updateTotal();
+        });
+    }
+
+    addToCartBtn.addEventListener('click', () => {
+      const storedProduct = JSON.parse(localStorage.getItem('produkDetail'));
+      const qty = parseInt(qtyInput.value);
+
+      if (!storedProduct) {
+        alert("Produk tidak ditemukan.");
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingIndex = cart.findIndex(item => item.id === storedProduct.id);
+
+      if (existingIndex !== -1) {
+        cart[existingIndex].qty += qty;
+      } else {
+        cart.push({ ...storedProduct, qty });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert("Produk berhasil ditambahkan ke keranjang!");
+    });
+
+    beliSekarangBtn.addEventListener("click", () => {
+    const qty = parseInt(qtyInput.value);
+    const produkCheckout = {
+    id: 1, 
+    name: productName.textContent,
+    image: productImage.src,
+    price: unitPrice,
+    qty: qty
+  };
+
+  localStorage.setItem("checkoutProduct", JSON.stringify(produkCheckout));
+  localStorage.setItem("fromDetail", "true");
+  window.location.href = "checkout.html";
+});
+
+  }
+
+  // CHECKOUT.HTML Logic
+  if (document.getElementById("checkoutContainer")) {
+    const container = document.getElementById("checkoutContainer");
+    const produkCheckout = JSON.parse(localStorage.getItem("checkoutProduct"));
+
+    if (!produkCheckout) {
+      container.innerHTML = "<p>Tidak ada produk untuk checkout.</p>";
+    } else {
+      const total = produkCheckout.price * produkCheckout.qty;
+
+      container.innerHTML = `
+        <div class="flex gap-4">
+          <img src="${produkCheckout.image}" class="w-32 h-32 object-cover border rounded">
+          <div>
+            <h2 class="text-xl font-bold mb-1">${produkCheckout.title}</h2>
+            <p class="text-pink-600">Harga Satuan: ${formatRupiah(produkCheckout.price)}</p>
+            <p class="text-gray-700">Jumlah: ${produkCheckout.qty}</p>
+            <p class="text-lg font-semibold mt-2">Total: ${formatRupiah(total)}</p>
+          </div>
+        </div>
+        <button class="mt-6 bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700">Bayar Sekarang</button>
+      `;
+    }
+  }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartContainer = document.getElementById("cartItems");
+
+    function formatRupiah(amount) {
+      return "Rp " + amount.toLocaleString("id-ID");
+    }
+
+    function updateTotal() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const checkboxes = document.querySelectorAll(".item-checkbox");
+      let total = 0;
+
+      checkboxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+          const index = parseInt(checkbox.dataset.index);
+          const quantity = cart[index].quantity || 1;
+          total += cart[index].price * quantity;
+        }
+      });
+
+      const totalElement = document.getElementById("total");
+      const taxElement = document.getElementById("tax");
+      const grandTotalElement = document.getElementById("grandTotal");
+
+      if (totalElement && taxElement && grandTotalElement) {
+        const tax = total * 0.1;
+        const grandTotal = total + tax;
+
+        totalElement.textContent = formatRupiah(total);
+        taxElement.textContent = formatRupiah(tax);
+        grandTotalElement.textContent = formatRupiah(grandTotal);
+      }
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function changeQuantity(index, delta) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (!cart[index].quantity) cart[index].quantity = 1;
+
+      cart[index].quantity += delta;
+      if (cart[index].quantity < 1) cart[index].quantity = 1;
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cartContainer.innerHTML = "";
+
+      cart.forEach((item, index) => {
+        const quantity = item.quantity || 1;
+
+        const itemHTML = `
+          <div class="flex items-start gap-4">
+            <div class="pt-6 pl-2">
+              <input type="checkbox" class="item-checkbox w-6 h-6 accent-pink-500" data-index="${index}" checked />
+            </div>
+            <div class="py-4 px-6 flex justify-between items-center w-full rounded-lg shadow">
+              <div class="flex items-center gap-6">
+                <img src="${item.image}" alt="${item.name}" class="w-[100px] h-[100px] object-contain rounded" />
+                <div>
+                  <h2 class="text-xl font-bold text-pink-700">${item.name || "undefined"}</h2>
+                  <p class="text-lg font-semibold text-gray-800 mt-1">${formatRupiah(item.price)}</p>
+                  <div class="flex items-center mt-3 border border-pink-500 rounded overflow-hidden w-max">
+                    <button onclick="changeQuantity(${index}, -1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">−</button>
+                    <div id="qty-${index}" class="px-4 py-1 text-pink-600">${quantity}</div>
+                    <button onclick="changeQuantity(${index}, 1)" class="px-3 py-1 text-pink-500 hover:bg-pink-100">+</button>
+                  </div>
+                </div>
+              </div>
+              <button onclick="removeItem(${index})" class="text-red-500 hover:underline text-sm">Hapus</button>
+            </div>
+          </div>
+        `;
+
+        cartContainer.insertAdjacentHTML("beforeend", itemHTML);
+      });
+
+      document.querySelectorAll(".item-checkbox").forEach((checkbox) => {
+        checkbox.addEventListener("change", updateTotal);
+      });
+
+      updateTotal();
+    }
+
+    renderCart();
+
+    // Checkout behavior (AlpineJS part is handled in HTML, here is fallback/extension)
+    window.checkout = function () {
+      const confirmModal = document.getElementById("confirmModal");
+      const successModal = document.getElementById("successModal");
+      const loadingText = document.getElementById("loadingText");
+
+      confirmModal.style.display = "flex";
+      loadingText.style.display = "none";
+
+      document.getElementById("btnLanjut").onclick = () => {
+        loadingText.style.display = "flex";
+        setTimeout(() => {
+          confirmModal.style.display = "none";
+          successModal.style.display = "flex";
+
+          // Hapus keranjang
+          localStorage.removeItem("cart");
+
+          // Setelah sukses, redirect atau tutup modal
+          setTimeout(() => {
+            successModal.style.display = "none";
+            // window.location.href = "/riwayat.html"; // optional redirect
+          }, 2000);
+        }, 2000);
+      };
+
+      document.getElementById("btnBatal").onclick = () => {
+        confirmModal.style.display = "none";
+      };
+    };
+  });
+</script>
+
+
+
+
+</body>
+</html>
+

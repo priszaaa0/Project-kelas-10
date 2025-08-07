@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Masuk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center">
+
+  <!-- Header -->
+  <div class="w-full bg-pink-100 text-center py-2 text-pink-600 text-sm font-medium">
+    Masuk
+  </div>
+
+  <!-- Top Bar -->
+  <div class="w-full flex justify-between items-center px-4 py-2">
+    <div class="flex items-center text-pink-500">
+      <button onclick="window.location.href='leanding.html'" class="flex items-center">
+        <span class="text-xl mr-1">&larr;</span> kembali
+      </button>
+    </div>
+    <button onclick="window.location.href='daftar.html'" class="border border-pink-400 text-pink-500 px-6 py-1 rounded transition hover:bg-pink-100 hover:scale-105 active:scale-95">
+      Daftar
+    </button>
+  </div>
+
+  <!-- Form Box -->
+  <div class="border border-pink-300 p-6 w-full max-w-xl mt-4 bg-white rounded text-center shadow">
+    <h1 class="text-pink-600 text-xl font-semibold mb-1">Selamat Datang Kembali!</h1>
+    <p class="text-pink-400 text-sm mb-4">Kami Senang Anda Kembali</p>
+
+    <!-- Form Inputs -->
+    <form class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div class="flex flex-col text-left">
+        <label for="email" class="text-sm text-pink-600 mb-1">Email</label>
+        <input id="email" type="email" placeholder="E-Mail Address" class="px-4 py-2 bg-gray-100 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-300 transition" required />
+      </div>
+      <div class="flex flex-col text-left">
+        <label for="password" class="text-sm text-pink-600 flex justify-between mb-1">
+          <span>Password</span>
+          <a href="#" class="text-xs text-pink-500 hover:underline">Lupa sandi?</a>
+        </label>
+        <input id="password" type="password" placeholder="Password" class="px-4 py-2 bg-gray-100 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-300 transition" required />
+      </div>
+    </form>
+
+    <!-- Garis separator -->
+    <div class="flex items-center justify-center text-sm text-pink-500 my-4">
+      <div class="flex-grow border-t border-pink-200"></div>
+      <span class="mx-2">or sign in with</span>
+      <div class="flex-grow border-t border-pink-200"></div>
+    </div>
+
+    <!-- Social Buttons -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <button type="button" class="flex items-center justify-center bg-gray-100 border border-pink-300 text-pink-500 py-2 rounded hover:bg-pink-50 transition">
+        <img src="navbarfoto/google.jpg" class="h-5 w-5 mr-2" alt="Google logo" />
+        Google
+      </button>
+      <button type="button" class="flex items-center justify-center bg-gray-100 border border-pink-300 text-pink-500 py-2 rounded hover:bg-pink-50 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="h-5 w-5 mr-2" alt="Facebook logo" />
+        Facebook
+      </button>
+    </div>
+
+    <!-- Login Button -->
+    <button onclick="window.location.href='home.html'" class="bg-pink-100 text-pink-500 border border-pink-300 px-6 py-2 rounded text-sm transition hover:scale-105 active:scale-95">
+      Masuk
+    </button>
+  </div>
+
+</body>
+</html>
